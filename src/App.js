@@ -37,5 +37,4 @@ const Root = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 1rem;
 `;
