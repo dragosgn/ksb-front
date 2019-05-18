@@ -11,7 +11,7 @@ export const Button = styled.div`
   font-size: 1.5rem;
   width: -webkit-fill-available;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   margin-left: 1rem;
   margin-right: 1rem;
 `;
