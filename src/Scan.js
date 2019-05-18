@@ -25,6 +25,11 @@ export default class extends React.Component {
         };
       });
   };
+  predictWithCocoModel = async () => {
+    const model = await cocoSSD.load("lite_mobilenet_v2");
+    this.detectFrame(this.video, model);
+    console.log("model loaded");
+  };
 
   detectFrame = (video, model) => {
     model.detect(video).then(predictions => {
