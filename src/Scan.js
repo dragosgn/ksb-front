@@ -3,6 +3,12 @@ import React from "react";
 import * as cocoSSD from "@tensorflow-models/coco-ssd";
 
 export default class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isRecognized: false
+    };
+  }
   componentDidMount() {
     this.webcam_init();
     this.predictWithCocoModel();
@@ -80,9 +86,20 @@ export default class extends React.Component {
     });
   };
 
+  componentDidUpdate() {
+    this.state.isRecognized && this.props.setNextView("start");
+  }
+
+  handleClick = () => {
+    console.log("it handles the click");
+    this.setState({
+      isRecognized: !this.state.isRecognized
+    });
+  };
+
   render() {
     return (
-      <div>
+      <div onClick={() => this.handleClick}>
         <video hidden id="vid" height="667" width="375" />
         <canvas id="canvas" />
       </div>

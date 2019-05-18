@@ -22,7 +22,9 @@ class App extends React.Component {
         {this.state.currentView === "start" && (
           <Start setNextView={this.setNextView} />
         )}
-        {this.state.currentView === "scan" && <Scan />}
+        {this.state.currentView === "scan" && (
+          <Scan setNextView={this.setNextView} />
+        )}
       </Root>
     );
   }
