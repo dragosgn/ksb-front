@@ -83,7 +83,7 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <div style="text-align:center">
+        <div>
           <video hidden id="vid" height="667" width="375" />
           <canvas id="canvas" />
         </div>
