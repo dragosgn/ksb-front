@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// import { Button } from "./styled";
-
 import Scan from "./Scan";
 import Start from "./Start";
 
