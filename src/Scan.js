@@ -83,7 +83,10 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <p>This is the button row</p>
+        <div style="text-align:center">
+          <video hidden id="vid" height="667" width="375" />
+          <canvas id="canvas" />
+        </div>
       </div>
     );
   }

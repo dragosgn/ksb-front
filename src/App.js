@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+// import { Button } from "./styled";
+
 import Scan from "./Scan";
 import Start from "./Start";
 
@@ -11,7 +13,7 @@ class App extends React.Component {
       currentView: "start"
     };
   }
-  nextView = view => {
+  setNextView = view => {
     this.setState({
       currentView: view
     });
@@ -19,7 +21,9 @@ class App extends React.Component {
   render() {
     return (
       <Root>
-        {this.state.currentView === "start" && <Start />}
+        {this.state.currentView === "start" && (
+          <Start setNextView={this.setNextView} />
+        )}
         {this.state.currentView === "scan" && <Scan />}
       </Root>
     );
@@ -30,6 +34,8 @@ export default App;
 
 const Root = styled.div`
   background-color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 `;
-
-const Button = styled.div``;
