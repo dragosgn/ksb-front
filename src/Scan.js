@@ -99,9 +99,9 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div onClick={() => this.handleClick}>
+      <div>
         <video hidden id="vid" height="667" width="375" />
-        <canvas id="canvas" />
+        <canvas id="canvas" onClick={() => this.handleClick} />
       </div>
     );
   }
