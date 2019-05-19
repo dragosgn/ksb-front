@@ -1,6 +1,6 @@
 import React from "react";
 // Import COCO-SSD model as cocoSSD
-import * as cocoSSD from "@tensorflow-models/coco-ssd";
+import * as cocoSSD from "./ksb_object_scanner";
 
 export default class extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ export default class extends React.Component {
   componentDidMount() {
     this.webcam_init();
     this.predictWithCocoModel();
+    setTimeout(() => this.handleChange, 4000);
   }
 
   webcam_init = () => {
@@ -32,7 +33,7 @@ export default class extends React.Component {
       });
   };
   predictWithCocoModel = async () => {
-    const model = await cocoSSD.load("lite_mobilenet_v2");
+    const model = await cocoSSD.load("web_model");
     this.detectFrame(this.video, model);
     console.log("model loaded");
   };
@@ -90,7 +91,7 @@ export default class extends React.Component {
     this.state.isRecognized && this.props.setNextView("start");
   }
 
-  handleClick = () => {
+  handleChange = () => {
     console.log("it handles the click");
     this.setState({
       isRecognized: !this.state.isRecognized
@@ -101,7 +102,7 @@ export default class extends React.Component {
     return (
       <div>
         <video hidden id="vid" height="667" width="375" />
-        <canvas id="canvas" onClick={() => this.handleClick} />
+        <canvas id="canvas" />
       </div>
     );
   }
